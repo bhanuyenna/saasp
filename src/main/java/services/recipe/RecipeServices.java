@@ -1,4 +1,4 @@
-package main.java.services.recipe;
+package services.recipe;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

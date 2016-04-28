@@ -1,4 +1,4 @@
-package main.java.connectionprovider;
+package connectionprovider;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;

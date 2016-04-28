@@ -1,4 +1,4 @@
-package main.java.Command;
+package Command;
 
 
 	
@@ -8,8 +8,8 @@ package main.java.Command;
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
 
-import main.java.connectionprovider.DBConnection;
-import main.java.model.User;
+import connectionprovider.DBConnection;
+import model.User;
 	public class Createuser {
 
 		public String execute(User s) {
@@ -20,10 +20,11 @@ import main.java.model.User;
 						.prepareStatement("INSERT INTO recipeusers( user_id, fname, lname, password)    VALUES (?, ?, ?, ?) Returning user_id");
 				stmt.setLong(1,s.getUser_id());
 				stmt.setString(2, s.getfirstName());
-				stmt.setString(3, s.getpassWord());
+				stmt.setString(3, s.getlastName());
+				stmt.setString(4, s.getpassWord());
 				ResultSet rs = stmt.executeQuery();
 				while (rs.next()) {
-					return rs.getString("id");
+					return rs.getString("user_id");
 				}
 
 			} catch (URISyntaxException e) {

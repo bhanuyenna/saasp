@@ -1,27 +1,27 @@
-package main.java.model;
+package model;
 
 public class User {
-	private long user_id;
-	private String firstname;
-	private String lastname;
+	private int user_id;
+	private String fname;
+	private String lname;
 	private String password;
-	public long getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(long user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 	public String getfirstName() {
-		return firstname;
+		return fname;
 	}
 	public void setfirstName(String firstName) {
-		this.firstname = firstName;
+		this.fname = firstName;
 	}
 	public String getlastName() {
-		return lastname;
+		return lname;
 	}
 	public void setlastName(String lastName) {
-		this.lastname = lastName;
+		this.lname = lastName;
 	}
 	public String getpassWord() {
 		return password;

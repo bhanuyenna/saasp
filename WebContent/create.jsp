@@ -22,7 +22,7 @@
 
 <div id="section">
 <h2>User Information</h2>
-<form method="POST" action="rest/User/user">
+<form method="POST">
 <input type="ineger" name="user_id" size="40"><br/>
 <input type="text" name="fname" size="40"><br/>
 <input type="text" name="lname" size="40"><br/>
