@@ -17,7 +17,7 @@ public class Updateuser {
 			User s=new User();
 			Connection connection = DBConnection.getConnection();
 			PreparedStatement stmt = connection
-					.prepareStatement("UPDATE recipeusers SET FirstName=?, LastName=?, Password=? WHERE User_ID=?");
+					.prepareStatement("UPDATE recipeusers SET fname=?, lname=?, password=? WHERE User_ID=?");
 			stmt.setString(1, s.getfirstName());
 			stmt.setString(2, s.getlastName());
 			stmt.setString(3, s.getpassWord());

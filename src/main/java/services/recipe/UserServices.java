@@ -84,7 +84,8 @@ public class UserServices {
 		String i = "";
 		try {
 			u = mapper.readValue(newuser, User.class);
-	//		u.setUser_id(user_id);
+			System.out.println("bhanu");
+			u.setUser_id(user_id);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			Response.status(400).entity("could not read string").build();

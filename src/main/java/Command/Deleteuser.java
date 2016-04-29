@@ -18,7 +18,7 @@ public class Deleteuser {
 			DBConnection db = new DBConnection();
 			Connection connection = db.getConnection();
 			PreparedStatement stmt = connection
-					.prepareStatement("Delete from recipeusers  WHERE User_ID=?");
+					.prepareStatement("Delete from recipeusers  WHERE user_id=?");
 			
 			stmt.executeQuery();
 
