@@ -11,10 +11,10 @@ import model.User;
 
 
 public class Updateuser {
-	public String execute(User u)  {
+	public String execute(User s)  {
 
 		try {
-			User s=new User();
+//			User s=new User();
 			Connection connection = DBConnection.getConnection();
 			PreparedStatement stmt = connection
 					.prepareStatement("UPDATE recipeusers SET fname=?, lname=?, password=? WHERE User_ID=?");

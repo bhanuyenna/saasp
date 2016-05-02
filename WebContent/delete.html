@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+	<div ng-app="myApp" ng-controller="userCtrl">
+		Enter Userid to be deleted<input type="text" ng-model="ids"><br />
+		<button ng-click="myFunc()">Submit</button>	
+	
+   
+	</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('userCtrl', function($scope, $http) {
+	$scope.myFunc = function() {
+	    $http.delete("http://localhost:8080/saasp/rest/user/"+$scope.ids).then(function(response) {
+	    	alert("Success");
+	        $scope.myData = response.data;
+	        console.log($scope.myData)
+	    });
+	};
+	
+});
+</script>
+
+</body>
+</html>

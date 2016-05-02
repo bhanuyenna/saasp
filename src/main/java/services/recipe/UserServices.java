@@ -120,7 +120,7 @@ public class UserServices {
 			Response.status(400).entity("could not read string").build();
 		}
 		try {
-			i=delete.execute(u);
+			i=delete.execute(user_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Response.status(500).build();

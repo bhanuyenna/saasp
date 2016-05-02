@@ -11,16 +11,16 @@ import model.User;
 
 
 public class Deleteuser {
-	public String execute(User u) throws Exception {
+	public String execute(int user_id) throws Exception {
 
 		try {
-			User s=new User();
+//			User s=new User();
 			DBConnection db = new DBConnection();
 			Connection connection = db.getConnection();
 			PreparedStatement stmt = connection
-					.prepareStatement("Delete from recipeusers  WHERE user_id=?");
-			
-			stmt.executeQuery();
+					.prepareStatement("Delete from recipeusers WHERE user_id=?");
+			stmt.setInt(1, user_id);
+			stmt.executeUpdate();
 
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
