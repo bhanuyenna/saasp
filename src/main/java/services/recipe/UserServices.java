@@ -18,6 +18,7 @@ import Command.Deleteuser;
 import Command.Listusers;
 import Command.Updateuser;
 import model.User;
+import util.PropertiesLookup;
 
 //import main.java.Command.Createuser;
 //import main.java.model.User;
@@ -129,7 +130,15 @@ public class UserServices {
 	}
 		
 	
-	
+//properties file
+	@GET
+	@Path("properties/{property}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response propertiesCheck(@PathParam("property") String property) {
+		PropertiesLookup pl = new PropertiesLookup();
+		String pValue = pl.getProperty(property);
+		return Response.status(200).entity(pValue).build();
+	}
 	
 	
 	
