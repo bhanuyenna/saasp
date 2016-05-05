@@ -20,7 +20,7 @@ app.controller('Unh', function($scope, $http) {
 					lastName:$scope.lastName,
 					passWord:$scope.passWord
 			};	
-			var res = $http.post('http://localhost:8080/saasp/rest/user/create', dataObj);
+			var res = $http.post('saasp.herokuapp.com/rest/user/create', dataObj);
 			res.success(function(data, status, headers, config) {
 				alert( "success");
 			});

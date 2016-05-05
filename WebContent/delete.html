@@ -14,7 +14,7 @@
 var app = angular.module('myApp', []);
 app.controller('userCtrl', function($scope, $http) {
 	$scope.myFunc = function() {
-	    $http.delete("http://localhost:8080/saasp/rest/user/"+$scope.ids).then(function(response) {
+	    $http.delete("saasp.herokuapp.com/rest/user/"+$scope.ids).then(function(response) {
 	    	alert("Success");
 	        $scope.myData = response.data;
 	        console.log($scope.myData)

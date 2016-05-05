@@ -3,11 +3,11 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 <div ng-app="myApp" ng-controller="Unh">
- Enter the User_id to e updated<input type=text ng-model="user_id"><br/>
+ <form ng-submit="submit()">
+ Enter the User_id to be updated<input type=text ng-model="user_id"><br/>
+ </form>
  <button ng-click="myFunc()">Submit</button>
-  FirstName<input type=text ng-model="firstName"><br/>
-  Last Name<input type=text ng-model="lastName"><br/>
-   Password<input type=password ng-model=passWord><br/>
+  
   
 </div>
 
@@ -15,18 +15,10 @@
 var app = angular.module('myApp', []);
 app.controller('Unh', function($scope, $http) {
 	$scope.myFunc = function() {
-	    var dataObj = {
-					
-					firstName : $scope.firstName,
-					lastName:$scope.lastName,
-					passWord:$scope.passWord
-			};	
-			var res = $http.put("http://localhost:8080/saasp/rest/user/"+$scope.ids, dataObj);
-			res.success(function(data, status, headers, config) {
-				alert( "success");
-			});
-			res.error(function(data, status, headers, config) {
-				alert( "failure message: " + JSON.stringify({data: data}));
+	    	
+		$location.$http.post("http://localhost:8080/saasp/rest/user/"+$scope.ids).then(function(response) {
+		    	alert("Success");
+		        
 			});	
 	};		
 });
