@@ -17,7 +17,7 @@
 var app = angular.module('myApp', []);
 app.controller('userCtrl', function($scope, $http) {
 	$scope.myFunc = function() {
-	    $http.get("saasp.herokuapp.com/rest/user/"+$scope.ids).then(function(response) {
+	    $http.get("https://saasp.herokuapp.com/rest/user/"+$scope.ids).then(function(response) {
 	    	alert("Success");
 	        $scope.myData = response.data;
 	        console.log($scope.myData)
