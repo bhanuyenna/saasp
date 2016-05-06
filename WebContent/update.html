@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src=“http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+var contextPath = '<%=request.getContextPath() %>'
+	function update(){
+		window.location =contextPath+"/rest/user/"+document.getElementById("userid").text(); 
+	}
+</script>
+
 <body>
-<div ng-app="myApp" ng-controller="Unh">
- <form ng-submit="submit()">
- Enter the User_id to be updated<input type=text ng-model="user_id"><br/>
- </form>
- <button ng-click="myFunc()">Submit</button>
-  
-  
-</div>
+	<div ng-app="myApp" ng-controller="userCtrl">
+		Enter Userid<input type="text" ng-model="ids"><br />
+		<button ng-click="myFunc()">Submit</button>	
+		<button onclick="update()">click here to update</button>	
+		<button onclick='location.href="http://localhost:8080/saasp/Home.html"' id="myButton">Back</button>	
+	<div>Userid:<span id="userid">{{myData.user_id}}</span><br/>
+	 FirstName:{{myData.firstName}} <br/>
+	 Last Name:{{myData.lastName}}
+	 password:{{myData.passWord}}</div>
+   
+	</div>
+	 <img src="images/local.jpg"  width="1350" height="443">
 
 <script>
 var app = angular.module('myApp', []);
-app.controller('Unh', function($scope, $http) {
+app.controller('userCtrl', function($scope, $http) {
 	$scope.myFunc = function() {
-	    	
-		$location.$http.post("http://localhost:8080/saasp/rest/user/"+$scope.ids).then(function(response) {
-		    	alert("Success");
-		        
-			});	
-	};		
+	    $http.get("http://localhost:8080/saasp/rest/user/"+$scope.ids).then(function(response) {
+	    	alert("Success");
+	        $scope.myData = response.data;
+	        console.log($scope.myData)
+	    });
+	};
+	
 });
 </script>
 

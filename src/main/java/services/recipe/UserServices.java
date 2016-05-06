@@ -1,5 +1,9 @@
 package services.recipe;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
@@ -9,16 +13,21 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import Command.Createuser;
 import Command.Deleteuser;
+import Command.ListOfUsers;
 import Command.Listusers;
 import Command.Updateuser;
 import model.User;
+import util.Constants;
 import util.PropertiesLookup;
+
 
 //import main.java.Command.Createuser;
 //import main.java.model.User;
@@ -140,7 +149,20 @@ public class UserServices {
 		return Response.status(200).entity(pValue).build();
 	}
 	
-	
+//list of all users
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listBooks() {
+		ListOfUsers lists = new ListOfUsers ();
+		ArrayList<User> list = lists.execute();
+		String users = null;
+		try {
+			users = mapper.writeValueAsString(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Response.status(200).entity(users).build();
+	}
 	
 	}
 	

@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="Use.css">
+</head>
 <body>
 	<div ng-app="myApp" ng-controller="userCtrl">
 		Enter Userid<input type="text" ng-model="ids"><br />
 		<button ng-click="myFunc()">Submit</button>	
-	<div>Userid:{{myData.user_id}}
-	 FirstName:{{myData.firstName}} 
-	 Last Name:{{myData.lastName}}
+		<button onclick='location.href="http://localhost:8080/saasp/Home.html"' id="myButton">Back</button>	
+		
+	<div>Userid:{{myData.user_id}}<br/>
+	 FirstName:{{myData.firstName}} <br/>
+	 Last Name:{{myData.lastName}}<br/>
 	 password:{{myData.passWord}}</div>
    
 	</div>
+	 <img src="images/local.jpg"  width="1350" height="443">
 
 <script>
 var app = angular.module('myApp', []);
 app.controller('userCtrl', function($scope, $http) {
 	$scope.myFunc = function() {
-	    $http.get("https://saasp.herokuapp.com/rest/user/"+$scope.ids).then(function(response) {
+	    $http.get("http://localhost:8080/saasp/rest/user/"+$scope.ids).then(function(response) {
 	    	alert("Success");
 	        $scope.myData = response.data;
 	        console.log($scope.myData)

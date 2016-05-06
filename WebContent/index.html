@@ -8,7 +8,10 @@
   Last Name<input type=text ng-model="lastName"><br/>
    Password<input type=password ng-model=passWord><br/>
   <button ng-click="myFunc()">Submit</button>
+  <button onclick='location.href="http://localhost:8080/saasp/Home.html"' id="myButton">Back</button>	
 </div>
+
+ <img src="images/local.jpg"  width="1325" height="543">
 
 <script>
 var app = angular.module('myApp', []);
@@ -20,7 +23,7 @@ app.controller('Unh', function($scope, $http) {
 					lastName:$scope.lastName,
 					passWord:$scope.passWord
 			};	
-			var res = $http.post('https://saasp.herokuapp.com/rest/user/create', dataObj);
+			var res = $http.post('http://localhost:8080/saasp/rest/user/create', dataObj);
 			res.success(function(data, status, headers, config) {
 				alert( "success");
 			});

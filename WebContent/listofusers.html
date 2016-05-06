@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="songCtrl">
+   <ul>
+  <li ng-repeat="x in myData">
+  
+   <b> Userid:</b>{{x.user_id}}<br/>
+	<b> FirstName:</b>{{x.firstName}} <br/>
+	 <b>Last Name:</b>{{x.lastName}}<br/>
+	 <b>password:</b>{{x.passWord}}</div>
+  </li>
+</ul>
+<button onclick='location.href="http://localhost:8080/saasp/Home.html"' id="myButton">Back</button>	
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('songCtrl', function($scope, $http) {
+    $http.get("http://localhost:8080/saasp/rest/user").then(function(response) {
+        $scope.myData = response.data;
+        console.log($scope.myData)
+    });
+});
+</script>
+
+</body>
+</html>
